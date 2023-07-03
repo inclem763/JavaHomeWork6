@@ -4,17 +4,15 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class BonusServiceTest {
-
     @Test
     void MonthsOfRestNextYear() {
         BonusService service = new BonusService();
-
-        int count = 2; //ожидается получить
-        int income = 100_000; //доход в месяц
-        int expences = 60_000; //расход в месяц
-        long actual = service.calculate(income, expences);
-        Assertions.assertEquals(count, actual);
-
+        int expected = 3; //ожидается получить
+        int income = 10_000; //доход в месяц
+        int expenses = 3_000; //расход в месяц
+        int treshold = 20_000; //есть возможность на отдых
+        long actual = service.calculate(income, expenses, treshold);
+        Assertions.assertEquals(expected, actual);
 
     }
 }
